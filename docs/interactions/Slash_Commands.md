@@ -799,17 +799,17 @@ If you specify `choices` for an option, they are the **only** valid values for a
 
 An interaction is the base "thing" that is sent when a user invokes a command, and is the same for Slash Commands and other future interaction types.
 
-| Field        | Type                                                             | Description                                                    |
-|--------------|------------------------------------------------------------------|----------------------------------------------------------------|
-| id           | snowflake                                                        | id of the interaction                                          |
-| type         | InteractionType                                                  | the type of interaction                                        |
+| Field        | Type                                                                                                     | Description                                                    |
+|--------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| id           | snowflake                                                                                                | id of the interaction                                          |
+| type         | InteractionType                                                                                          | the type of interaction                                        |
 | data?\*      | [ApplicationCommandInteractionData](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondata) | the command data payload                                       |
-| guild_id?    | snowflake                                                        | the guild it was sent from                                     |
-| channel_id?  | snowflake                                                        | the channel it was sent from                                   |
-| member?\*\*  | [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object | guild member data for the invoking user, including permissions |
-| user?        | [user](#DOCS_RESOURCES_USER/user-object) object                  | user object for the invoking user, if invoked in a DM          |
-| token        | string                                                           | a continuation token for responding to the interaction         |
-| version      | int                                                              | read-only property, always `1`                                 |
+| guild_id?    | snowflake                                                                                                | the guild it was sent from                                     |
+| channel_id?  | snowflake                                                                                                | the channel it was sent from                                   |
+| member?\*\*  | [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object                                         | guild member data for the invoking user, including permissions |
+| user?        | [user](#DOCS_RESOURCES_USER/user-object) object                                                          | user object for the invoking user, if invoked in a DM          |
+| token        | string                                                                                                   | a continuation token for responding to the interaction         |
+| version      | int                                                                                                      | read-only property, always `1`                                 |
 
 \* This is always present on `ApplicationCommand` interaction types. It is optional for future-proofing against new interaction types
 
@@ -824,10 +824,10 @@ An interaction is the base "thing" that is sent when a user invokes a command, a
 
 ###### ApplicationCommandInteractionData
 
-| Field    | Type                                             | Description                       |
-|----------|--------------------------------------------------|-----------------------------------|
-| id       | snowflake                                        | the ID of the invoked command     |
-| name     | string                                           | the name of the invoked command   |
+| Field    | Type                                                                                                                          | Description                       |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| id       | snowflake                                                                                                                     | the ID of the invoked command     |
+| name     | string                                                                                                                        | the name of the invoked command   |
 | options? | array of [ApplicationCommandInteractionDataOption](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondataoption) | the params + values from the user |
 
 ###### ApplicationCommandInteractionDataOption
@@ -836,10 +836,10 @@ All options have names, and an option can either be a parameter and input value-
 
 `value` and `options` are mutually exclusive.
 
-| Field    | Type                                             | Description                                     |
-|----------|--------------------------------------------------|-------------------------------------------------|
-| name     | string                                           | the name of the parameter                       |
-| value?   | OptionType                                       | the value of the pair                           |
+| Field    | Type                                                                                                                          | Description                                     |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| name     | string                                                                                                                        | the name of the parameter                       |
+| value?   | OptionType                                                                                                                    | the value of the pair                           |
 | options? | array of [ApplicationCommandInteractionDataOption](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondataoption) | present if this option is a group or subcommand |
 
 ## Interaction Response
