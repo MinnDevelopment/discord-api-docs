@@ -803,7 +803,7 @@ An interaction is the base "thing" that is sent when a user invokes a command, a
 |--------------|------------------------------------------------------------------|----------------------------------------------------------------|
 | id           | snowflake                                                        | id of the interaction                                          |
 | type         | InteractionType                                                  | the type of interaction                                        |
-| data?\*      | ApplicationCommandInteractionData                                | the command data payload                                       |
+| data?\*      | [ApplicationCommandInteractionData](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondata) | the command data payload                                       |
 | guild_id?    | snowflake                                                        | the guild it was sent from                                     |
 | channel_id?  | snowflake                                                        | the channel it was sent from                                   |
 | member?\*\*  | [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object | guild member data for the invoking user, including permissions |
@@ -828,11 +828,11 @@ An interaction is the base "thing" that is sent when a user invokes a command, a
 |----------|--------------------------------------------------|-----------------------------------|
 | id       | snowflake                                        | the ID of the invoked command     |
 | name     | string                                           | the name of the invoked command   |
-| options? | array of ApplicationCommandInteractionDataOption | the params + values from the user |
+| options? | array of [ApplicationCommandInteractionDataOption](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondataoption) | the params + values from the user |
 
 ###### ApplicationCommandInteractionDataOption
 
-All options have names, and an option can either be a parameter and input value--in which case `value` will be set--or it can denote a subcommand or group--in which case it will contain a top-level key and another array of `options`. 
+All options have names, and an option can either be a parameter and input value--in which case `value` will be set--or it can denote a subcommand or group--in which case it will contain a top-level key and another array of `options`.
 
 `value` and `options` are mutually exclusive.
 
@@ -840,7 +840,7 @@ All options have names, and an option can either be a parameter and input value-
 |----------|--------------------------------------------------|-------------------------------------------------|
 | name     | string                                           | the name of the parameter                       |
 | value?   | OptionType                                       | the value of the pair                           |
-| options? | array of ApplicationCommandInteractionDataOption | present if this option is a group or subcommand |
+| options? | array of [ApplicationCommandInteractionDataOption](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommandinteractiondataoption) | present if this option is a group or subcommand |
 
 ## Interaction Response
 
@@ -860,13 +860,13 @@ Interaction responses can also be public—everyone can see it—or "ephemeral"�
 
 ###### InteractionResponseType
 
-| Name                     | Value | Description                                                       |
-|--------------------------|-------|-------------------------------------------------------------------|
-| Pong                     | 1     | ACK a `Ping`                                                      |
-| Acknowledge              | 2     | **DEPRECATED** ACK a command without sending a message, eating the user's input  |
-| ChannelMessage           | 3     | **DEPRECATED** respond with a message, eating the user's input                   |
-| ChannelMessageWithSource | 4     | respond to an interaction with a message                 |
-| DeferredChannelMessageWithSource    | 5     | ACK an interaction and edit to a response later, the user sees a loading state |
+| Name                                | Value | Description                                                                      |
+|-------------------------------------|-------|----------------------------------------------------------------------------------|
+| Pong                                | 1     | ACK a `Ping`                                                                     |
+| Acknowledge                         | 2     | **DEPRECATED** ACK a command without sending a message, eating the user's input  |
+| ChannelMessage                      | 3     | **DEPRECATED** respond with a message, eating the user's input                   |
+| ChannelMessageWithSource            | 4     | respond to an interaction with a message                                         |
+| DeferredChannelMessageWithSource    | 5     | ACK an interaction and edit to a response later, the user sees a loading state   |
 
 ###### InteractionApplicationCommandCallbackData
 
@@ -884,9 +884,9 @@ Not all message fields are currently supported.
 
 This is sent on the [message object](#DOCS_RESOURCES_CHANNEL/message-object) when the message is a response to an Interaction.
 
-| Name | Value | Description |
-| --- | --- | --- |
-| id           | snowflake                                                        | id of the interaction                                          |
-| type         | InteractionType                                                  | the type of interaction                                        |
-| name | string | the name of the [ApplicationCommand](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommand) |
-| user | [user object](#DOCS_RESOURCES_USER/user-object) | the user who invoked the interaction |
+| Name | Value                                           | Description                                                                                |
+|------|-------------------------------------------------|--------------------------------------------------------------------------------------------|
+| id   | snowflake                                       | id of the interaction                                                                      |
+| type | InteractionType                                 | the type of interaction                                                                    |
+| name | string                                          | the name of the [ApplicationCommand](#DOCS_INTERACTIONS_SLASH_COMMANDS/applicationcommand) |
+| user | [user object](#DOCS_RESOURCES_USER/user-object) | the user who invoked the interaction                                                       |
